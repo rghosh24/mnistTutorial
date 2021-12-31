@@ -1,0 +1,20 @@
+<div class="model-body">
+  <canvas appDrawable (newImage)="detect($event)"></canvas>
+  <div>
+    <ion-button (click)="erase()">Restart</ion-button>
+  </div>
+  <div>
+    <p style="font-family:sans-serif;font-size:30px;">Predicted Result: <strong>{{detectedNumber}}</strong></p>
+  </div>
+
+  <div>
+    <p style="font-family:monospace;font-size:15px;">Confidence in Each Number:</p>
+  </div>
+
+  <table>
+    <tr *ngFor="let detection of detections; index as i">
+      <td>{{i}}</td>
+      <td class="ion-text-end">{{detection * 100 | number:'1.1-1'}} %</td>
+    </tr>
+  </table>
+</div>
